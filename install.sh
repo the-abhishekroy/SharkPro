@@ -87,8 +87,8 @@ mkdir -p "$INSTALL_DIR/static/css" "$INSTALL_DIR/static/js" "$INSTALL_DIR/static
 
 # Install Python modules
 echo -e "${Y}[*] Installing Python modules...${NC}"
-pip3 install --user requests colorama beautifulsoup4 qrcode pillow flask psutil 2>/dev/null || \
-pip install requests colorama beautifulsoup4 qrcode pillow flask psutil
+pip3 install --user requests colorama beautifulsoup4 qrcode pillow flask 2>/dev/null || \
+pip install requests colorama beautifulsoup4 qrcode pillow flask
 
 echo -e "${G}[✓] Python modules installed${NC}"
 

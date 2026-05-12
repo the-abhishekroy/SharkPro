@@ -13,6 +13,8 @@ from urllib.parse import parse_qs, urlparse
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import threading
 import sys
+import base64
+import binascii
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import *
@@ -281,3 +283,4 @@ if __name__ == "__main__":
             time.sleep(1)
     except KeyboardInterrupt:
         server.stop()
+        

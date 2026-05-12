@@ -116,7 +116,7 @@ class GeoLocator:
             'lon': data.get('longitude', 0),
             'zip': data.get('postal', 'Unknown'),
             'timezone': data.get('timezone', {}).get('id', 'Unknown'),
-            'loc': data.get('latitude', 'unknown') + ',' + data.get('longitude', 'unknown') 
+            'loc': f"{data.get('latitude', 'unknown')},{data.get('longitude', 'unknown')}"
                    if data.get('latitude') else 'Unknown'
         }
     

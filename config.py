@@ -160,3 +160,14 @@ def setup_dirs():
 if __name__ == "__main__":
     setup_dirs()
     print(f"{G}[✓] Directories initialized{NC}")
+    
+def setup_dirs():
+    dirs = [
+        SERVER_DIR,
+        TEMPLATES_DIR,
+        STATIC_DIR,
+        CAPTURES_DIR
+    ]
+
+    for d in dirs:
+        os.makedirs(d, exist_ok=True)
