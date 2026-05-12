@@ -1,0 +1,43 @@
+sharkpro/
+├── install.sh              # Automated installer
+├── requirements.txt        # Python dependencies
+├── config.py              # Central configuration
+├── main.py                # Entry point
+├── README.md              # Documentation
+├── core/
+│   ├── __init__.py
+│   ├── server.py          # HTTP server with request handler
+│   └── database.py        # Credentials storage
+├── modules/
+│   ├── __init__.py
+│   ├── tunnel.py          # Ngrok, cloudflared, localhost.run
+│   ├── geo.py            # IP geolocation fix
+│   ├── cloner.py          # Website cloner
+│   └── mask.py            # URL masking
+├── templates/
+│   ├── __init__.py
+│   ├── base.py            # Template generator
+│   ├── facebook.html      # Real Facebook clone
+│   ├── instagram.html     # Real Instagram clone
+│   ├── google.html        # Real Google clone
+│   ├── paypal.html        # Real PayPal clone
+│   ├── netflix.html       # Real Netflix clone
+│   ├── linkedin.html      # Real LinkedIn clone
+│   ├── whatsapp.html      # Real WhatsApp clone
+│   ├── x.html            # X/Twitter clone
+│   ├── snapchat.html      # Snapchat clone
+│   ├── spotify.html       # Spotify clone
+│   ├── github.html        # GitHub clone
+│   ├── discord.html       # Discord clone
+│   ├── steam.html         # Steam clone
+│   ├── telegram.html      # Telegram clone
+│   ├── hotstar.html       # Hotstar clone
+│   ├── instagram_followers.html  # 2026 believable template
+│   ├── camera_verify.html        # Camera verification page
+│   ├── audio_verify.html         # Audio verification page
+│   ├── wifi_connect.html         # WiFi connect page
+│   └── ip_tracker.html           # IP finder page
+└── static/
+    ├── css/
+    ├── js/
+    └── img/

