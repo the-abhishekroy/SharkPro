@@ -15,10 +15,9 @@ import signal
 # Try to import psutil, but make it optional
 try:
     import psutil
-    HAS_PSUTIL = True
 except ImportError:
-    HAS_PSUTIL = False
-    print(f"{Y}[!] psutil not available, using fallback methods{NC}")
+    print("[!] psutil not available, using fallback methods")
+    psutil = None
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import *
