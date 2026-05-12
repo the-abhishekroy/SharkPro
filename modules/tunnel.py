@@ -12,7 +12,13 @@ import time
 import subprocess
 import requests
 import signal
-import psutil
+# Try to import psutil, but make it optional
+try:
+    import psutil
+    HAS_PSUTIL = True
+except ImportError:
+    HAS_PSUTIL = False
+    print(f"{Y}[!] psutil not available, using fallback methods{NC}")
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import *
@@ -27,17 +33,21 @@ class TunnelManager:
     def _kill_existing(self, service_name):
         """Kill existing tunnel processes"""
         try:
-            # Try pkill first
+            # Try pkill first (works on Termux/Linux)
             subprocess.run(['pkill', '-f', service_name.lower()], 
                          capture_output=True, timeout=5)
         except:
             pass
         
-        # Kill by name from psutil
-        for proc in psutil.process_iter(['pid', 'name']):
+        # Fallback to psutil if available
+        if HAS_PSUTIL:
             try:
-                if service_name.lower() in proc.info['name'].lower():
-                    psutil.Process(proc.info['pid']).terminate()
+                for proc in psutil.process_iter(['pid', 'name']):
+                    try:
+                        if service_name.lower() in proc.info['name'].lower():
+                            psutil.Process(proc.info['pid']).terminate()
+                    except:
+                        pass
             except:
                 pass
         

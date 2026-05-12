@@ -1,9 +1,0 @@
-
-==================================================
-Time: 2026-05-10 23:22:07
-IP: 127.0.0.1
-Template: Instagram
-username: Bbhh
-password: fuijj
-User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/29.0 Chrome/136.0.0.0 Mobile Safari/537.36
-==================================================
